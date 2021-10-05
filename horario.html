@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8"/>
+    <head>
+        <title>
+            Horario
+        </title>
+        <style type="text/css">
+            body { background-color:white; color:rgb(0, 0, 0); -webkit-transition: .4s; transition: .4s;}
+            table    { border:ridge 2px red; background-color:white; color:rgb(0, 0, 0); width: 525px; height: 400px; text-align: center;}
+            table td { border:inset 1px #000;}
+            tbody.clases td:hover { background-color:#55e900; color:#000}
+            .textformat { background-color: #6ea8dc; color: white; font-weight:bold; width: 100px; height: 30px}
+            .hours { color: #1f497d; font-weight:bold; width: 200px; height: 60px }
+            .hours:hover{ color: #1f497d !important; background-color:white !important}
+            .primero { color: #ff9900;} .segundoesp { color: #20c000;} .segundoing { color: #0089b3;} .cuarto { color: #9d00db;}
+            .tabla { float: left; margin-right:50px; border:"1"; margin-bottom: 10px;}
+            .lunes { border-color: black;} .martes { border-color: black;} .miercoles { border-color: black;} .jueves { border-color: black;} .viernes { border-color: black;}
+            #cuatri1, #cuatri2, #textoCuatri1, #textoCuatri2 { display: none}
+            .boton { width: 120px; height: 34px; border-radius: 34px;}
+            .leyenda { margin-left: 0px; font-size: 25px;}
+
+            .dark-mode { background-color: rgb(12, 12, 12); color: rgb(233, 233, 233); -webkit-transition: .4s; transition: .4s;}
+            .dark-mode table { background-color: rgb(85, 85, 85);}
+            .dark-mode .hours { color: #4595f8 !important; background-color: rgb(50, 50, 50) !important;}
+            .dark-mode .hours:hover { color: #4595f8; background-color: rgb(50, 50, 50);}
+            .dark-mode .textformat {background-color: #2196F3; color: rgb(233, 233, 233)}
+            .dark-mode .boton { background-color: #2196F3; color: white; font-weight: bold}
+            
+            .switch { position: relative; display: inline-block; width: 60px; height: 34px;}
+            .switch input { opacity: 0; width: 0; height: 0;}
+            .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; border-radius: 34px; background-color: rgb(206, 158, 0); -webkit-transition: .4s; transition: .4s;}
+            .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; border-radius: 50%; background-color: white; -webkit-transition: .4s; transition: .4s;}
+            input:checked + .slider { background-color: #2196F3;}
+            input:focus + .slider { box-shadow: 0 0 1px #2196F3;}
+            input:checked + .slider:before { -webkit-transform: translateX(26px); -ms-transform: translateX(26px); transform: translateX(26px);}
+        </style>
+    </head>
+    <body style="font-family: Arial">
+        <h1>Horario Curso 2021/22</h1>
+        <h3>Hecho por Pablo Ruiz-Cruces</h3>
+        <label class="switch"><input type="checkbox" onclick="theme()"><span class="slider round"></span></label>
+        <button type="button" class="boton" onclick="mostrarHorario(1);" style="position: relative; top: 7px;">Primer Cuatri</button> 
+        <button type="button" class="boton" onclick="mostrarHorario(2);" style="position: relative; top: 7px;">Segundo Cuatri</button>
+        <div>&nbsp;</div>
+        <table class="tabla" id="cuatri1">
+            <th class="textformat" style="border:inset 1px black">Hora 
+                <td class="textformat">Lunes</td>
+                <td class="textformat">Martes</td>
+                <td class="textformat">Miércoles</td>
+                <td class="textformat">Jueves</td>
+                <td class="textformat">Viernes</td>
+            </th>
+            <tbody class="clases">
+                <tr>
+                    <td class="hours">8:45 a 10:30</td>
+                    <td class="segundoesp lunes">TALF</td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td class="hours">10:45 a 12:30</td>
+                    <td class="segundoing lunes">Data Structures</td>
+                    <td> </td>
+                    <td class="segundoing miercoles">Databases</td>
+                    <td class="segundoing jueves">Data Structures</td>
+                    <td class="segundoing viernes">Databases</td>
+                </tr>
+                <tr>
+                    <td class="hours">12:45 a 14:30</td>
+                    <td></td>
+                    <td class="segundoing martes">Data Structures</td>
+                    <td> </td>
+                    <td> </td>
+                    <td class="segundoesp viernes">TALF</td>
+                </tr>
+                <tr>
+                    <td class="hours">15:30 a 17:15</td>
+                    <td class="primero lunes">Física</td>
+                    <td class="primero martes">Electrónica</td>
+                    <td></td>
+                    <td> </td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td class="hours">17:30 a 19:15</td>
+                    <td></td>
+                    <td> </td>
+                    <td></td>
+                    <td class="primero jueves">Física</td>
+                    <td class="primero viernes">Electrónica</td>
+                </tr>
+                <tr>
+                    <td class="hours">19:30 a 21:15</td>
+                    <td class="primero lunes">Electrónica</td>
+                    <td></td>
+                    <td> </td>
+                    <td> </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="tabla" id="cuatri2">
+            <th class="textformat" style="border:inset 1px black">Hora
+                <td class="textformat">Lunes</td>
+                <td class="textformat">Martes</td>
+                <td class="textformat">Miércoles</td>
+                <td class="textformat">Jueves</td>
+                <td class="textformat">Viernes</td>
+            </th>
+            <tbody class="clases">
+                <tr>
+                    <td class="hours">8:45 a 10:30</td>
+                    <td></td>
+                    <td class="segundoesp martes">Redes y Sistemas</td>
+                    <td class="segundoing miercoles">Intelligent Systems</td>
+                    <td class="segundoesp jueves">Redes y Sistemas</td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td class="hours">10:45 a 12:30</td>
+                    <td class="segundoesp lunes">Sistemas Operativos</td>
+                    <td class="segundoesp martes">Sistemas Operativos</td>
+                    <td></td>
+                    <td class="segundoing jueves">Intelligent Systems</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="hours">12:45 a 14:30</td>
+                    <td></td>
+                    <td class="segundoing martes">Intelligent Systems</td>
+                    <td> </td>
+                    <td class="segundoesp jueves">Sistemas Operativos</td>
+                    <td class="segundoesp viernes">Redes y Sistemas</td>
+                </tr>
+                <tr>
+                    <td class="hours">15:30 a 17:15</td>
+                    <td class="cuarto lunes">Proyectos y Legislación</td>
+                    <td></td>
+                    <td></td>
+                    <td> </td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td class="hours">17:30 a 19:15</td>
+                    <td></td>
+                    <td class="primero martes">Álgebra</td>
+                    <td class="cuarto miercoles">Proyectos y Legislación</td>
+                    <td class="primero jueves">Álgebra</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="hours">19:30 a 21:15</td>
+                    <td></td>
+                    <td></td>
+                    <td class="primero miercoles">Álgebra</td>
+                    <td class="cuarto jueves">Proyectos y Legislación</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>
+            <div id="textoCuatri1" class="leyenda">
+            <div class="primero">Clase 1ºD: 3.0.2  </div>
+            <ul>
+                <li class="primero">Electrónica: Joaquín Fernández García - jfernandezga@uma.es</li>
+                <li class="primero">Física: Juan Miguel Vargas Domínguez - jvd@uma.es</li>
+            </ul>
+            <div class="segundoing">Clase 2ºB: 2.0.10  </div>
+            <ul>
+                <li class="segundoing">Databases: David Bueno Vallejo, Tito Enciso - david.bueno@uma.es, enciso@uma.es</li>
+                <li class="segundoing">Data Structures: Jose Enrique Gallardo Ruíz - jegallardo@uma.es</li>
+            </ul>
+            <div class="segundoesp">Clase 2ºD: 3.0.8  </div>
+            <ul>
+                <li class="segundoesp">TALF: Francisco Jose Vico Vela - fjvico@uma.es</li>
+            </ul>
+            </div>
+            <div id="textoCuatri2" class="leyenda">
+            <div class="primero">Clase 1ºD: 3.0.3  </div>
+            <ul>
+                <li class="primero">Álgebra: Juan José Villalba Senciales - jvsenciales@uma.es</li>
+            </ul>
+            <div class="segundoing">Clase 2ºB: 2.0.10  </div>
+            <ul>
+                <li class="segundoing">Intelligent Systems: Ezequiel Lopez Rubio, Jose Luis Pérez de la Cruz - elr@uma.es, ccia@uma.es</li>
+            </ul>
+            <div class="segundoesp">Clase 2ºD: 3.0.8  </div>
+            <ul>
+                <li class="segundoesp">Sistemas Operativos: Dios - corbera@uma.es</li>
+                <li class="segundoesp">Redes y Sistemas Distribuidos: Javier Cámara Moreno - jcamara@uma.es</li>
+            </ul>
+            <div class="cuarto">Clase 4º: 3.0.7  </div>
+            <ul>
+                <li class="cuarto">Proyectos y Legislación: Jose Luis Pérez de la Cruz, Amparo Ruiz Sepúlveda - ccia@uma.es, aruizs@uma.es</li>
+            </ul>
+            </div>
+        </h2>
+        <script>
+
+            var d = new Date();
+            var lunes = document.getElementsByClassName('lunes');
+            var martes = document.getElementsByClassName('martes');
+            var miercoles = document.getElementsByClassName('miercoles');
+            var jueves = document.getElementsByClassName('jueves');
+            var viernes = document.getElementsByClassName('viernes');
+            
+            switch(d.getDay()){
+                case 1: for(var i = 0; i<lunes.length; i++) {
+                    lunes[i].style.borderColor = "green"; 
+                    lunes[i].style.borderWidth = "thick";
+                }
+                break;
+                case 2: for(var i = 0; i<martes.length; i++) {
+                    martes[i].style.borderColor = "green"; 
+                    martes[i].style.borderWidth = "thick";
+                }
+                break;
+                case 3: for(var i = 0; i<miercoles.length; i++) {
+                    miercoles[i].style.borderColor = "green"; 
+                    miercoles[i].style.borderWidth = "thick";
+                }
+                break;
+                case 4: for(var i = 0; i<jueves.length; i++) {
+                    jueves[i].style.borderColor = "green"; 
+                    jueves[i].style.borderWidth = "thick";
+                }
+                break;
+                case 5: for(var i = 0; i<viernes.length; i++) {
+                    viernes[i].style.borderColor = "green"; 
+                    viernes[i].style.borderWidth = "thick";
+                }
+                break;
+            }
+
+            function mostrarHorario(h) {
+
+                document.getElementById("cuatri1").style.display="none";
+                document.getElementById("cuatri2").style.display="none";
+                document.getElementById("cuatri"+h).style.display="table";
+
+                document.getElementById("textoCuatri1").style.display="none";
+                document.getElementById("textoCuatri2").style.display="none";
+                document.getElementById("textoCuatri"+h).style.display="table";
+            }
+
+            function theme() {
+                var element = document.body;
+                element.classList.toggle("dark-mode");
+            }
+
+        </script>
+    </body>
+</html>
