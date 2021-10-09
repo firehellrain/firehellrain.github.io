@@ -1,0 +1,148 @@
+/* Estilos Principales */
+
+/* Propiedades de componentes */
+body { 
+    background-color:white; 
+    color:rgb(0, 0, 0); 
+    -webkit-transition: .4s; 
+    transition: .4s;
+}
+
+table { 
+    border: ridge 2px red;
+    background-color:white; 
+    color:rgb(0, 0, 0); 
+    width: 525px; height: 400px; 
+    text-align: center;
+}
+
+table td { border:inset 1px #000; }
+
+.tabla { 
+    float: left; 
+    margin-right:50px; 
+    margin-bottom: 10px;
+    border:"1";
+}
+
+tbody.clases td:hover { 
+    background-color:#55e900; 
+    color:#000
+}
+
+.boton { 
+    width: 120px; height: 34px; 
+    border-radius: 34px;
+}
+
+.leyenda { 
+    margin-left: 0px; 
+    font-size: 25px;
+}
+
+/* Propiedades de texto */
+.customfont { 
+    background-color: #6ea8dc; 
+    color: white; 
+    font-weight: bold; 
+    width: 100px; height: 30px
+}
+
+.hours { 
+    color: #1f497d;
+    font-weight:bold; 
+    width: 200px; height: 60px 
+}
+
+.hours:hover{ 
+    color: #1f497d !important; 
+    background-color:white !important
+}
+
+/* Tags de asignaturas */
+.primero { color: #ff9900;} 
+.segundoesp { color: #20c000;} 
+.segundoing { color: #0089b3;} 
+.cuarto { color: #9d00db;}
+
+.lunes { border-color: black;} 
+.martes { border-color: black;} 
+.miercoles { border-color: black;} 
+.jueves { border-color: black;} 
+.viernes { border-color: black;}
+
+/* Tags de tablas del horario, escondidas a la espera de ser mostradas */
+#cuatri1, #cuatri2, #textoCuatri1, #textoCuatri2 { display: none}
+
+/* Modo Oscuro */
+.dark-mode { 
+    background-color: rgb(12, 12, 12); 
+    color: rgb(233, 233, 233); 
+    -webkit-transition: .4s; 
+    transition: .4s;
+}
+
+.dark-mode table { background-color: rgb(85, 85, 85);}
+
+.dark-mode .hours { 
+    color: #4595f8 !important; 
+    background-color: rgb(50, 50, 50) !important;
+}
+
+.dark-mode .hours:hover { 
+    color: #4595f8; 
+    background-color: rgb(50, 50, 50);
+}
+
+.dark-mode .textformat {
+    background-color: #2196F3; 
+    color: rgb(233, 233, 233)
+}
+
+.dark-mode .boton { 
+    background-color: #2196F3; 
+    color: white; 
+    font-weight: bold
+}
+
+/* Botón Switch para cambiar entre Light y Dark Theme */
+.switch { 
+    position: relative; 
+    display: inline-block; 
+    width: 60px; height: 34px;
+}
+
+.switch input { 
+    opacity: 0; 
+    width: 0; height: 0;
+}
+
+.slider {
+    position: absolute; 
+    cursor: pointer; 
+    top: 0; left: 0; right: 0; bottom: 0; 
+    border-radius: 34px; 
+    background-color: rgb(206, 158, 0); 
+    -webkit-transition: .4s; 
+    transition: .4s;
+}
+
+.slider:before { 
+    position: absolute; 
+    content: ""; 
+    width: 26px; height: 26px;
+    left: 4px; bottom: 4px; 
+    border-radius: 50%; 
+    background-color: white; 
+    -webkit-transition: .4s; 
+    transition: .4s;
+}
+
+input:checked + .slider { background-color: #2196F3;}
+input:focus + .slider { box-shadow: 0 0 1px #2196F3;}
+
+input:checked + .slider:before { 
+    -webkit-transform: translateX(26px); 
+    -ms-transform: translateX(26px); 
+    transform: translateX(26px);
+}

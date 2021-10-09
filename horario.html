@@ -5,51 +5,45 @@
         <title>
             Horario
         </title>
-        <style type="text/css">
-            body { background-color:white; color:rgb(0, 0, 0); -webkit-transition: .4s; transition: .4s;}
-            table    { border:ridge 2px red; background-color:white; color:rgb(0, 0, 0); width: 525px; height: 400px; text-align: center;}
-            table td { border:inset 1px #000;}
-            tbody.clases td:hover { background-color:#55e900; color:#000}
-            .textformat { background-color: #6ea8dc; color: white; font-weight:bold; width: 100px; height: 30px}
-            .hours { color: #1f497d; font-weight:bold; width: 200px; height: 60px }
-            .hours:hover{ color: #1f497d !important; background-color:white !important}
-            .primero { color: #ff9900;} .segundoesp { color: #20c000;} .segundoing { color: #0089b3;} .cuarto { color: #9d00db;}
-            .tabla { float: left; margin-right:50px; border:"1"; margin-bottom: 10px;}
-            .lunes { border-color: black;} .martes { border-color: black;} .miercoles { border-color: black;} .jueves { border-color: black;} .viernes { border-color: black;}
-            #cuatri1, #cuatri2, #textoCuatri1, #textoCuatri2 { display: none}
-            .boton { width: 120px; height: 34px; border-radius: 34px;}
-            .leyenda { margin-left: 0px; font-size: 25px;}
-
-            .dark-mode { background-color: rgb(12, 12, 12); color: rgb(233, 233, 233); -webkit-transition: .4s; transition: .4s;}
-            .dark-mode table { background-color: rgb(85, 85, 85);}
-            .dark-mode .hours { color: #4595f8 !important; background-color: rgb(50, 50, 50) !important;}
-            .dark-mode .hours:hover { color: #4595f8; background-color: rgb(50, 50, 50);}
-            .dark-mode .textformat {background-color: #2196F3; color: rgb(233, 233, 233)}
-            .dark-mode .boton { background-color: #2196F3; color: white; font-weight: bold}
+        <link rel="stylesheet" href="horario.css">
+        <script>
+            // Función que muestra el horario seleccionado en el botón
+            function mostrarHorario(h) {
+                document.getElementById("cuatri1").style.display="none";
+                document.getElementById("cuatri2").style.display="none";
+                document.getElementById("cuatri"+h).style.display="table";
             
-            .switch { position: relative; display: inline-block; width: 60px; height: 34px;}
-            .switch input { opacity: 0; width: 0; height: 0;}
-            .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; border-radius: 34px; background-color: rgb(206, 158, 0); -webkit-transition: .4s; transition: .4s;}
-            .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; border-radius: 50%; background-color: white; -webkit-transition: .4s; transition: .4s;}
-            input:checked + .slider { background-color: #2196F3;}
-            input:focus + .slider { box-shadow: 0 0 1px #2196F3;}
-            input:checked + .slider:before { -webkit-transform: translateX(26px); -ms-transform: translateX(26px); transform: translateX(26px);}
-        </style>
+                document.getElementById("textoCuatri1").style.display="none";
+                document.getElementById("textoCuatri2").style.display="none";
+                document.getElementById("textoCuatri"+h).style.display="table";
+            }
+            
+            // Función que cambia entre el Light y el Dark Theme cuando se pulsa el switch
+            function theme(){
+                document.body.classList.toggle("dark-mode");
+            }
+        </script>
     </head>
+
     <body style="font-family: Arial">
+
         <h1>Horario Curso 2021/22</h1>
         <h3>Hecho por Pablo Ruiz-Cruces</h3>
+
+        <!-- Botones de selección entre horarios y temas -->
         <label class="switch"><input type="checkbox" onclick="theme()"><span class="slider round"></span></label>
         <button type="button" class="boton" onclick="mostrarHorario(1);" style="position: relative; top: 7px;">Primer Cuatri</button> 
         <button type="button" class="boton" onclick="mostrarHorario(2);" style="position: relative; top: 7px;">Segundo Cuatri</button>
         <div>&nbsp;</div>
+
+        <!-- Tabla del horario del primer cuatrimestre -->
         <table class="tabla" id="cuatri1">
-            <th class="textformat" style="border:inset 1px black">Hora 
-                <td class="textformat">Lunes</td>
-                <td class="textformat">Martes</td>
-                <td class="textformat">Miércoles</td>
-                <td class="textformat">Jueves</td>
-                <td class="textformat">Viernes</td>
+            <th class="customfont" style="border:inset 1px black">Hora 
+                <td class="customfont">Lunes</td>
+                <td class="customfont">Martes</td>
+                <td class="customfont">Miércoles</td>
+                <td class="customfont">Jueves</td>
+                <td class="customfont">Viernes</td>
             </th>
             <tbody class="clases">
                 <tr>
@@ -102,13 +96,15 @@
                 </tr>
             </tbody>
         </table>
+
+         <!-- Tabla del horario del segundo cuatrimestre -->
         <table class="tabla" id="cuatri2">
-            <th class="textformat" style="border:inset 1px black">Hora
-                <td class="textformat">Lunes</td>
-                <td class="textformat">Martes</td>
-                <td class="textformat">Miércoles</td>
-                <td class="textformat">Jueves</td>
-                <td class="textformat">Viernes</td>
+            <th class="customfont" style="border:inset 1px black">Hora
+                <td class="customfont">Lunes</td>
+                <td class="customfont">Martes</td>
+                <td class="customfont">Miércoles</td>
+                <td class="customfont">Jueves</td>
+                <td class="customfont">Viernes</td>
             </th>
             <tbody class="clases">
                 <tr>
@@ -161,7 +157,10 @@
                 </tr>
             </tbody>
         </table>
+
+        <!-- Leyenda de profesores y clases de cada curso -->
         <h2>
+            <!-- Primer cuatrimestre -->
             <div id="textoCuatri1" class="leyenda">
             <div class="primero">Clase 1ºD: 3.0.2  </div>
             <ul>
@@ -178,6 +177,7 @@
                 <li class="segundoesp">TALF: Francisco Jose Vico Vela - fjvico@uma.es</li>
             </ul>
             </div>
+            <!-- Segundo cuatrimestre -->
             <div id="textoCuatri2" class="leyenda">
             <div class="primero">Clase 1ºD: 3.0.3  </div>
             <ul>
@@ -198,59 +198,41 @@
             </ul>
             </div>
         </h2>
-        <script>
 
-            var d = new Date();
+        <script>
+            /* Script que resalta las clases del día de la semana */
+
+            // Variables del script
+            var date = new Date();
             var lunes = document.getElementsByClassName('lunes');
             var martes = document.getElementsByClassName('martes');
             var miercoles = document.getElementsByClassName('miercoles');
             var jueves = document.getElementsByClassName('jueves');
             var viernes = document.getElementsByClassName('viernes');
             
-            switch(d.getDay()){
+            // Resaltamos en el horario las clases del día
+            switch(date.getDay()){
                 case 1: for(var i = 0; i<lunes.length; i++) {
                     lunes[i].style.borderColor = "green"; 
                     lunes[i].style.borderWidth = "thick";
-                }
-                break;
+                } break;
                 case 2: for(var i = 0; i<martes.length; i++) {
                     martes[i].style.borderColor = "green"; 
                     martes[i].style.borderWidth = "thick";
-                }
-                break;
+                } break;
                 case 3: for(var i = 0; i<miercoles.length; i++) {
                     miercoles[i].style.borderColor = "green"; 
                     miercoles[i].style.borderWidth = "thick";
-                }
-                break;
+                } break;
                 case 4: for(var i = 0; i<jueves.length; i++) {
                     jueves[i].style.borderColor = "green"; 
                     jueves[i].style.borderWidth = "thick";
-                }
-                break;
+                } break;
                 case 5: for(var i = 0; i<viernes.length; i++) {
                     viernes[i].style.borderColor = "green"; 
                     viernes[i].style.borderWidth = "thick";
-                }
-                break;
+                } break;
             }
-
-            function mostrarHorario(h) {
-
-                document.getElementById("cuatri1").style.display="none";
-                document.getElementById("cuatri2").style.display="none";
-                document.getElementById("cuatri"+h).style.display="table";
-
-                document.getElementById("textoCuatri1").style.display="none";
-                document.getElementById("textoCuatri2").style.display="none";
-                document.getElementById("textoCuatri"+h).style.display="table";
-            }
-
-            function theme() {
-                var element = document.body;
-                element.classList.toggle("dark-mode");
-            }
-
-        </script>
+        </script> 
     </body>
 </html>
