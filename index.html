@@ -196,32 +196,32 @@
             /* Script que resalta las clases del día de la semana */
 
             // Variables del script
-            var date = new Date();
-            var lunes = document.getElementsByClassName('lunes');
-            var martes = document.getElementsByClassName('martes');
-            var miercoles = document.getElementsByClassName('miercoles');
-            var jueves = document.getElementsByClassName('jueves');
-            var viernes = document.getElementsByClassName('viernes');
+            let date = new Date();
+            let lunes = document.getElementsByClassName('lunes');
+            let martes = document.getElementsByClassName('martes');
+            let miercoles = document.getElementsByClassName('miercoles');
+            let jueves = document.getElementsByClassName('jueves');
+            let viernes = document.getElementsByClassName('viernes');
             
             // Resaltamos en el horario las clases del día
             switch(date.getDay()){
-                case 1: for(var i = 0; i<lunes.length; i++) {
+                case 1: for(let i = 0; i<lunes.length; i++) {
                     lunes[i].style.borderColor = "green"; 
                     lunes[i].style.borderWidth = "thick";
                 } break;
-                case 2: for(var i = 0; i<martes.length; i++) {
+                case 2: for(let i = 0; i<martes.length; i++) {
                     martes[i].style.borderColor = "green"; 
                     martes[i].style.borderWidth = "thick";
                 } break;
-                case 3: for(var i = 0; i<miercoles.length; i++) {
+                case 3: for(let i = 0; i<miercoles.length; i++) {
                     miercoles[i].style.borderColor = "green"; 
                     miercoles[i].style.borderWidth = "thick";
                 } break;
-                case 4: for(var i = 0; i<jueves.length; i++) {
+                case 4: for(let i = 0; i<jueves.length; i++) {
                     jueves[i].style.borderColor = "green"; 
                     jueves[i].style.borderWidth = "thick";
                 } break;
-                case 5: for(var i = 0; i<viernes.length; i++) {
+                case 5: for(let i = 0; i<viernes.length; i++) {
                     viernes[i].style.borderColor = "green"; 
                     viernes[i].style.borderWidth = "thick";
                 } break;
