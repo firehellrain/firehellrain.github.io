@@ -104,6 +104,8 @@ tbody.clases td:hover {
     transition: .4s;
 }
 
+.dark-mode .cuarto { color: #e0a8f7;}
+
 .dark-mode table { background-color: rgb(85, 85, 85);}
 
 .dark-mode .hours { 
